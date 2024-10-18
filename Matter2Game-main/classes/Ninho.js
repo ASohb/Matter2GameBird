@@ -1,10 +1,10 @@
-// Classe Plataforma
-class Plataforma {
+// Classe Ninho
+class Ninho{
     constructor(x, y, largura, altura) {
       this.corpo = Matter.Bodies.rectangle(x, y, largura, altura, { isStatic: true });
       this.largura = largura;
       this.altura = altura;
-      this.imagem= loadImage('imagens/Plataforma/ground_grass.png')
+      this.imagem= loadImage('imagens/ninho.png')
       Matter.World.add(mundo, this.corpo);
     }
   
@@ -16,4 +16,3 @@ class Plataforma {
       pop(); // Restaura o estado anterior
     }
   }
-  

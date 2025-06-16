@@ -128,16 +128,19 @@ function verificarColisaoComNinho(jogador, ninho) {
 }
 
  function jogadorTocandoPlataforma(jogador, plataforma) {
-   const posicaoJogador = jogador.corpo.position;
-   const posicaoPlataforma = plataforma.corpo.position;
- 
-   // Verificar se o jogador está em cima da plataforma
-   const tocando =
-     posicaoJogador.y + jogador.altura / 2 >= posicaoPlataforma.y - plataforma.altura / 2 &&
-     posicaoJogador.x + jogador.largura / 2 >= posicaoPlataforma.x - plataforma.largura / 2 &&
-     posicaoJogador.x - jogador.largura / 2 <= posicaoPlataforma.x + plataforma.largura / 2;
- 
-   return tocando;
+      const posicaoJogador = jogador.corpo.position;
+      const posicaoPlataforma = plataforma.corpo.position;
+      
+      const margem = 5; 
+      
+      const tocando = 
+      
+          posicaoJogador.y + jogador.altura / 2 >= posicaoPlataforma.y - plataforma.altura / 2 - margem && // jogador está em cima
+          posicaoJogador.y + jogador.altura / 2 <= posicaoPlataforma.y - plataforma.altura / 2 + margem && // dentro da margem
+          posicaoJogador.x + jogador.largura / 2 >= posicaoPlataforma.x - plataforma.largura / 2 && // largura esquerda
+          posicaoJogador.x - jogador.largura / 2 <= posicaoPlataforma.x + plataforma.largura / 2;   // largura direita
+      
+      return tocando; 
  }
 
 
